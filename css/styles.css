@@ -348,7 +348,7 @@ body.cursor-hover .cursor-follower { width:56px; height:56px; border-color: var(
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: calc(var(--nav-h) + 4rem) 2rem 2rem;
+  padding: calc(var(--nav-h) + 1.5rem) 2rem 2rem;
   max-width: 1400px;
   width: 100%;
   display: flex;
