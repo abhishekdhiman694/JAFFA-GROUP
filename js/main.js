@@ -525,51 +525,33 @@ function initCounters() {
    BUILD GALLERY GRID
 ============================================================ */
 function buildGallery() {
-  const tracks = [
-    document.getElementById('galleryTrack1'),
-    document.getElementById('galleryTrack2'),
-    document.getElementById('galleryTrack3')
-  ];
-  if (!tracks[0]) return;
+  const container = document.getElementById('galleryBento');
+  if (!container) return;
 
-  // Shuffle or strategically distribute images across 3 rows
-  const row1 = [...GALLERY_IMAGES.slice(0, 9)];
-  const row2 = [...GALLERY_IMAGES.slice(9, 18)];
-  const row3 = [...GALLERY_IMAGES.slice(18, 28)];
+  // Take first 9 high-quality images for the bento
+  const bentoImages = GALLERY_IMAGES.slice(0, 9);
 
-  const rowsData = [row1, row2, row3];
+  bentoImages.forEach((imgData, idx) => {
+    const item = document.createElement('div');
+    item.className = 'gallery__item reveal-up';
+    
+    item.innerHTML = `
+      <img src="${imgData.src}" alt="${imgData.label}" loading="lazy">
+      <div class="gallery__overlay">
+        <span class="gallery__project-name">${imgData.label}</span>
+      </div>
+    `;
 
-  rowsData.forEach((rowImages, rowIndex) => {
-    const track = tracks[rowIndex];
-    if (!track) return;
-
-    // We double the images in the track for a seamless infinite loop
-    const displayImages = [...rowImages, ...rowImages];
-
-    displayImages.forEach((imgData, idx) => {
-      const item = document.createElement('div');
-      item.className = 'gallery__marquee-item';
-      
-      // Sizing is now handled by CSS for better responsiveness
-      
-      item.innerHTML = `
-        <img src="${imgData.src}" alt="${imgData.label}" loading="lazy">
-        <div class="gallery__marquee-label">
-          <span>${imgData.label}</span>
-        </div>
-      `;
-
-      // Open lightbox on click
-      item.addEventListener('click', () => {
-        openLightbox(GALLERY_IMAGES.map(g => g.src), GALLERY_IMAGES.indexOf(imgData));
-      });
-
-      // Cursor hover (will be ignored if cursor logic is disabled via the isTouchDevice check)
-      item.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      item.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-
-      track.appendChild(item);
+    // Open lightbox on click
+    item.addEventListener('click', () => {
+      openLightbox(GALLERY_IMAGES.map(g => g.src), GALLERY_IMAGES.indexOf(imgData));
     });
+
+    // Cursor hover
+    item.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    item.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+
+    container.appendChild(item);
   });
 }
 

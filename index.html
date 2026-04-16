@@ -52,43 +52,47 @@
        HERO SECTION
   =============================== -->
   <section class="hero" id="hero" aria-label="Hero">
-    <div class="hero__parallax" id="heroParallax">
-      <video
-        class="hero__bg hero__video"
-        id="heroBg"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        aria-hidden="true"
-      >
-        <source src="Video_Animation_For_Website_Background.mp4" type="video/mp4">
-        <!-- Fallback image if video can't play -->
-        <img src="Hero Photos/showcase 2.webp" alt="Luxury custom home by Jaffa Group">
-      </video>
-    </div>
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <p class="hero__label">Park City, Utah &nbsp;·&nbsp; Award-Winning Builder</p>
-      <h1 class="hero__title">
-        <span class="hero__title-line" data-line="1">Built With</span>
-        <span class="hero__title-line" data-line="2">UncomPromisinG</span>
-        <span class="hero__title-line" data-line="3">Craft</span>
-      </h1>
-      <p class="hero__subtitle">Luxury Custom Homes · Est. 1999</p>
-      <div class="hero__actions">
-        <a href="#projects" class="btn btn--gold" id="heroViewPortfolio">View Portfolio</a>
-        <a href="#contact" class="btn btn--outline" id="heroWorkWithUs">Work With Us</a>
+    <div class="hero__outer-container">
+      <div class="hero__parallax" id="heroParallax">
+        <video
+          class="hero__bg hero__video"
+          id="heroBg"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+        >
+          <source src="Video_Animation_For_Website_Background.mp4" type="video/mp4">
+          <!-- Fallback image if video can't play -->
+          <img src="Hero Photos/showcase 2.webp" alt="Luxury custom home by Jaffa Group">
+        </video>
       </div>
-    </div>
-    <div class="hero__scroll-indicator">
-      <span class="hero__scroll-text">Scroll</span>
-      <div class="hero__scroll-line">
-        <div class="hero__scroll-dot"></div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <p class="hero__label">Park City, Utah &nbsp;·&nbsp; Award-Winning Builder</p>
+        <h1 class="hero__title">
+          <span class="hero__title-line" data-line="1">Built With</span>
+          <span class="hero__title-line" data-line="2">UncomPromisinG</span>
+          <span class="hero__title-line" data-line="3">Craft</span>
+        </h1>
+        <p class="hero__subtitle">Luxury Custom Homes · Est. 1999</p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--gold" id="heroViewPortfolio">View Portfolio</a>
+          <a href="#contact" class="btn btn--outline" id="heroWorkWithUs">Work With Us</a>
+        </div>
+      </div>
+      <div class="hero__scroll-indicator">
+        <span class="hero__scroll-text">Scroll</span>
+        <div class="hero__scroll-line">
+          <div class="hero__scroll-dot"></div>
+        </div>
       </div>
     </div>
   </section>
+
+  <div class="pixel-divider"></div>
 
   <!-- ==============================
        INTERIOR ZOOM TRANSITION
@@ -107,62 +111,51 @@
     </div>
   </section>
 
+  <div class="pixel-divider"></div>
+
   <!-- ==============================
        STATS BAR
   =============================== -->
   <section class="stats" id="about" aria-label="Company statistics">
-    <div class="stats__container">
-      <div class="stats__item reveal-up">
-        <span class="stats__number" data-count="25" id="statYears">0</span><span class="stats__plus">+</span>
-        <p class="stats__label">Years of Excellence</p>
+    <div class="stats__grid">
+      <div class="stats__card reveal-up">
+        <div class="stats__card-inner">
+          <span class="stats__number" data-count="25" id="statYears">0</span><span class="stats__plus">+</span>
+          <p class="stats__label">Years of excellence</p>
+        </div>
       </div>
-      <div class="stats__divider"></div>
-      <div class="stats__item reveal-up">
-        <span class="stats__number" data-count="150" id="statHomes">0</span><span class="stats__plus">+</span>
-        <p class="stats__label">Homes Crafted</p>
+      <div class="stats__card reveal-up">
+        <div class="stats__card-inner">
+          <span class="stats__number" data-count="150" id="statHomes">0</span><span class="stats__plus">+</span>
+          <p class="stats__label">Homes crafted</p>
+        </div>
       </div>
-      <div class="stats__divider"></div>
-      <div class="stats__item reveal-up">
-        <span class="stats__number" data-count="40" id="statAwards">0</span><span class="stats__plus">+</span>
-        <p class="stats__label">Industry Awards</p>
-      </div>
-      <div class="stats__divider"></div>
-      <div class="stats__item reveal-up">
-        <span class="stats__number" data-count="100" id="statSat">0</span><span class="stats__plus">%</span>
-        <p class="stats__label">Client Satisfaction</p>
+      <div class="stats__card reveal-up">
+        <div class="stats__card-inner">
+          <span class="stats__number" data-count="40" id="statAwards">0</span><span class="stats__plus">+</span>
+          <p class="stats__label">Industry awards</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <div class="pixel-divider"></div>
+
   <!-- ==============================
-       GALLERY SECTION
+       GALLERY SECTION (BENTO GRID)
   =============================== -->
   <section class="gallery" id="gallery" aria-label="Photo gallery">
     <div class="gallery__header reveal-up">
       <span class="label">Our Portfolio</span>
       <h2 class="gallery__heading">A Gallery of<br><em>Exceptional Living</em></h2>
-      <div class="gallery__divider"></div>
     </div>
-    <!-- Marquee Row 1 (Left) -->
-    <div class="gallery__marquee-row">
-      <div class="gallery__marquee-outer">
-        <div class="gallery__marquee-track gallery__marquee-track--left" id="galleryTrack1"></div>
-      </div>
+    
+    <div class="gallery__bento" id="galleryBento">
+      <!-- Populated by JS -->
     </div>
-    <!-- Marquee Row 2 (Right) -->
-    <div class="gallery__marquee-row">
-      <div class="gallery__marquee-outer">
-        <div class="gallery__marquee-track gallery__marquee-track--right" id="galleryTrack2"></div>
-      </div>
-    </div>
-    <!-- Marquee Row 3 (Left Slow) -->
-    <div class="gallery__marquee-row">
-      <div class="gallery__marquee-outer">
-        <div class="gallery__marquee-track gallery__marquee-track--slow" id="galleryTrack3"></div>
-      </div>
-    </div>
+
     <div class="gallery__cta reveal-up">
-      <a href="#projects" class="btn btn--outline-gold" id="galleryCta">See All Projects</a>
+      <a href="#projects" class="btn btn--outline-gold" id="galleryCta">Explore Full Portfolio</a>
     </div>
   </section>
 
@@ -364,6 +357,10 @@
         </div>
       </div>
     </div>
+    <div class="footer__brand-giant reveal-up">
+      JAFFA
+    </div>
+
     <div class="footer__bottom">
       <p>&copy; 2024 Jaffa Group. All Rights Reserved.</p>
       <p>Luxury Custom Home Builders — Park City, Utah</p>
