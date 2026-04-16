@@ -73,11 +73,11 @@
       <div class="hero__content">
         <p class="hero__label">Park City, Utah &nbsp;·&nbsp; Award-Winning Builder</p>
         <h1 class="hero__title">
-          <span class="hero__title-line" data-line="1">Built With</span>
+          <span class="hero__title-line" data-line="1">Built <span class="serif">With</span></span>
           <span class="hero__title-line" data-line="2">UncomPromisinG</span>
           <span class="hero__title-line" data-line="3">Craft</span>
         </h1>
-        <p class="hero__subtitle">Luxury Custom Homes · Est. 1999</p>
+        <p class="hero__subtitle">Luxury Custom Homes <span class="accent">· Est. 1999</span></p>
         <div class="hero__actions">
           <a href="#projects" class="btn btn--gold" id="heroViewPortfolio">View Portfolio</a>
           <a href="#contact" class="btn btn--outline" id="heroWorkWithUs">Work With Us</a>
@@ -97,16 +97,27 @@
   <!-- ==============================
        INTERIOR ZOOM TRANSITION
   =============================== -->
+  <!-- ==============================
+       OUR CRAFT (OVERLAPPING ARCHITECTURE)
+  =============================== -->
   <section class="interior" id="interior" aria-label="Interior design showcase">
-    <div class="interior__zoom-wrap" id="interiorZoomWrap">
-      <img src="Hero Photos/T 2.webp" alt="Luxury interior design by Jaffa Group" class="interior__img" id="interiorImg">
-    </div>
-    <div class="interior__content">
-      <div class="interior__text">
-        <span class="label reveal-up">Our Craft</span>
-        <h2 class="interior__heading reveal-up">Spaces Designed<br>to Inspire</h2>
-        <p class="interior__desc reveal-up">Every detail, every material, every sightline — chosen with intention. Jaffa Group brings together master craftsmen and visionary architects to create homes that define a new standard of luxury living.</p>
-        <a href="#projects" class="btn btn--gold reveal-up" id="interiorExplore">Explore Our Work</a>
+    <div class="interior__layout">
+      <div class="interior__visual">
+        <div class="interior__main-frame reveal-left">
+          <img src="Hero Photos/T 2.webp" alt="Luxury interior design" class="interior__img-main">
+        </div>
+        <div class="interior__floating-frame reveal-up">
+          <img src="Hero Photos/T 3.webp" alt="Detailed craftsmanship" class="interior__img-float">
+          <div class="interior__tag">EST. 1999</div>
+        </div>
+      </div>
+      
+      <div class="interior__text-block reveal-right">
+        <span class="label">Our Craft</span>
+        <h2 class="interior__heading">Spaces <span class="serif">Designed</span><br>to Inspire</h2>
+        <div class="interior__divider"></div>
+        <p class="interior__desc">Every detail, every material, every sightline — chosen with intention. Jaffa Group brings together master craftsmen and visionary architects to create homes that define a new standard of luxury living.</p>
+        <a href="#projects" class="btn btn--gold" id="interiorExplore">Explore Our Work</a>
       </div>
     </div>
   </section>
@@ -186,38 +197,59 @@
   </section>
 
   <!-- ==============================
-       PROCESS SECTION
+       THE JAFFA PROCESS (MODULAR CARDS)
   =============================== -->
   <section class="process" id="process" aria-label="Building process">
-    <div class="process__bg">
-      <img src="Hero Photos/showcase 5.webp" alt="Jaffa Group building process" class="process__bg-img">
-      <div class="process__bg-overlay"></div>
-    </div>
-    <div class="process__content">
+    <div class="process__container">
       <div class="process__header reveal-up">
-        <span class="label label--light">How We Build</span>
-        <h2 class="process__heading">The Jaffa<br>Process</h2>
+        <span class="label">Our Methodology</span>
+        <h2 class="process__heading">The Jaffa <span class="serif">Process</span></h2>
+        <p class="process__intro">A disciplined, architectural approach to turning vision into reality. No detail is too small; no standard is too high.</p>
       </div>
-      <div class="process__steps">
-        <div class="process__step reveal-left" id="processStep1">
-          <span class="process__step-num">01</span>
-          <h3 class="process__step-title">Vision & Design</h3>
-          <p class="process__step-desc">We begin with your vision. Our design team works closely with you to shape every concept — from land selection to architectural style.</p>
+
+      <div class="process__grid">
+        <div class="process__card reveal-up">
+          <div class="process__card-header">
+            <span class="process__num">01</span>
+            <div class="process__icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+          </div>
+          <h3 class="process__title">Vision & Design</h3>
+          <p class="process__desc">We begin with your vision. Our design team works closely with you to shape every concept — from land selection to architectural style.</p>
         </div>
-        <div class="process__step reveal-left" id="processStep2">
-          <span class="process__step-num">02</span>
-          <h3 class="process__step-title">Precision Planning</h3>
-          <p class="process__step-desc">Every detail is planned before a single nail is driven. Site analysis, material selection, and engineering are all perfectly aligned.</p>
+
+        <div class="process__card reveal-up">
+          <div class="process__card-header">
+            <span class="process__num">02</span>
+            <div class="process__icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+          </div>
+          <h3 class="process__title">Precision Planning</h3>
+          <p class="process__desc">Every detail is planned before a single nail is driven. Site analysis, material selection, and engineering are all perfectly aligned.</p>
         </div>
-        <div class="process__step reveal-left" id="processStep3">
-          <span class="process__step-num">03</span>
-          <h3 class="process__step-title">Master Craftsmanship</h3>
-          <p class="process__step-desc">Our elite craftsmen deliver execution to the highest standards — on time, on budget, and beyond your expectations.</p>
+
+        <div class="process__card reveal-up">
+          <div class="process__card-header">
+            <span class="process__num">03</span>
+            <div class="process__icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            </div>
+          </div>
+          <h3 class="process__title">Master Craftsmanship</h3>
+          <p class="process__desc">Our elite craftsmen deliver execution to the highest standards — on time, on budget, and beyond your expectations.</p>
         </div>
-        <div class="process__step reveal-left" id="processStep4">
-          <span class="process__step-num">04</span>
-          <h3 class="process__step-title">White Glove Delivery</h3>
-          <p class="process__step-desc">From the final walkthrough to long-term warranty support — we stand behind every home we build, long after move-in day.</p>
+
+        <div class="process__card reveal-up">
+          <div class="process__card-header">
+            <span class="process__num">04</span>
+            <div class="process__icon-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+          </div>
+          <h3 class="process__title">White Glove Delivery</h3>
+          <p class="process__desc">From the final walkthrough to long-term warranty support — we stand behind every home we build, long after move-in day.</p>
         </div>
       </div>
     </div>

@@ -537,6 +537,10 @@ function buildGallery() {
     
     item.innerHTML = `
       <img src="${imgData.src}" alt="${imgData.label}" loading="lazy">
+      <div class="gallery__data-tag">
+        <span class="gallery__tag-loc">PARK CITY</span>
+        <span class="gallery__tag-year">2024</span>
+      </div>
       <div class="gallery__overlay">
         <span class="gallery__project-name">${imgData.label}</span>
       </div>

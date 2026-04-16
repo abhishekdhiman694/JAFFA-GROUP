@@ -17,6 +17,9 @@
 @font-face { font-family:'Bambino'; src:url('../fonts/Bambino Black.otf') format('opentype'); font-weight:900; font-style:normal; }
 @font-face { font-family:'Bambino'; src:url('../fonts/Bambino Black Italic.otf') format('opentype'); font-weight:900; font-style:italic; }
 
+/* ---- GOOGLE FONTS ---- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
 /* ---- CSS CUSTOM PROPERTIES ---- */
 :root {
   --black: #080808;
@@ -35,12 +38,14 @@
   --gold-glow: rgba(238,190,28,0.15);
   --gold-glow-strong: rgba(238,190,28,0.3);
 
-  --font: 'Bambino', 'Georgia', serif;
+  --font: 'Bambino', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-accent: 'Fraunces', serif;
 
   --nav-h: 110px;
-  --radius: 32px;
-  --radius-lg: 48px;
-  --transition: 0.5s cubic-bezier(0.16,1,0.3,1);
+  --radius: 40px;
+  --radius-lg: 80px; /* Extreme luxury rounding */
+  --transition: 0.8s cubic-bezier(0.16,1,0.3,1); /* Slower, cinematic transition */
   --transition-fast: 0.25s ease;
 }
 
@@ -110,15 +115,18 @@ body.cursor-hover .cursor-follower { width:56px; height:56px; border-color: var(
 }
 .label--light { color: rgba(238,190,28,0.8); }
 .gold { color: var(--gold); }
+.serif { font-family: var(--font-serif); font-style: italic; text-transform: none; letter-spacing: 0; }
+.accent { font-family: var(--font-accent); font-style: italic; text-transform: none; }
 
 /* ---- PIXEL DIVIDER ---- */
 .pixel-divider {
   width: 100%;
   height: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h10v10H0V0zm10 10h10v10H10V10zm10 10h10v10H20V20zm10 10h10v10H30V30z' fill='%23EEBE1C' fill-opacity='0.4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h10v10H0V0zm10 10h10v10H10V10zm10 10h10v10H20V20zm10 10h10v10H30V30z' fill='%23EEBE1C' fill-opacity='0.6'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
-  margin: 2rem 0;
-  opacity: 0.6;
+  margin: 4rem 0;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 10px rgba(238,190,28,0.2));
 }
 
 /* ---- BUTTONS ---- */
@@ -465,48 +473,94 @@ body.cursor-hover .cursor-follower { width:56px; height:56px; border-color: var(
    INTERIOR ZOOM SECTION
 ================================= */
 .interior {
-  position: relative;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  padding: 4vh 4vw;
-  gap: 4vw;
+  padding: 8rem 0;
   background: var(--black);
+  overflow: visible; /* Allow overlaps to show */
 }
-.interior__zoom-wrap {
+.interior__layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 8vw;
+  padding: 0 4vw;
+}
+@media (max-width: 1024px) {
+  .interior__layout { grid-template-columns: 1fr; gap: 4rem; }
+}
+
+.interior__visual {
   position: relative;
-  height: 90vh;
+}
+.interior__main-frame {
+  width: 90%;
+  aspect-ratio: 4/5;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+  box-shadow: 0 50px 100px rgba(0,0,0,0.6);
 }
-.interior__img {
+.interior__img-main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1);
-  transition: transform 0.05s linear;
-  will-change: transform;
+  transition: transform 1s var(--transition);
 }
-.interior__content {
-  display: flex;
-  align-items: center;
-  padding: 2rem;
+.interior__main-frame:hover .interior__img-main { transform: scale(1.05); }
+
+.interior__floating-frame {
+  position: absolute;
+  bottom: -10%;
+  right: -5%;
+  width: 50%;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  border: 10px solid var(--black);
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+  z-index: 2;
 }
-.interior__text { max-width: 480px; }
-.interior__heading {
-  font-size: clamp(2.8rem, 4vw, 5rem);
+@media (max-width: 1024px) {
+  .interior__floating-frame { bottom: -5%; width: 40%; }
+}
+.interior__img-float {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.interior__tag {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: var(--gold);
+  color: var(--black);
+  padding: 0.4rem 1rem;
+  font-size: 0.65rem;
   font-weight: 900;
-  line-height: 1.05;
+  border-radius: 100px;
+}
+
+.interior__text-block {
+  padding: 2rem 0;
+}
+.interior__heading {
+  font-size: clamp(3rem, 5vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.95;
   letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
+}
+.interior__divider {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 3rem 0;
 }
 .interior__desc {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 300;
   line-height: 1.8;
   color: var(--light-grey);
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
+  max-width: 500px;
 }
 
 /* ================================
@@ -685,6 +739,35 @@ body.cursor-hover .cursor-follower { width:56px; height:56px; border-color: var(
   padding: 2rem;
 }
 .gallery__item:hover .gallery__overlay { opacity: 1; }
+.gallery__item:hover .gallery__project-name { transform: translateY(0); opacity: 1; }
+
+/* DATA TAGS */
+.gallery__data-tag {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  pointer-events: none;
+}
+.gallery__tag-loc {
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  background: rgba(8,8,8,0.8);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+.gallery__tag-year {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--white);
+  opacity: 0.5;
+  padding: 0 0.6rem;
+}
 .gallery__project-name {
   color: var(--white);
   font-size: 0.9rem;
@@ -789,56 +872,23 @@ body.cursor-hover .cursor-follower { width:56px; height:56px; border-color: var(
 
 
 /* ================================
-   PROCESS SECTION
+   THE JAFFA PROCESS (MODULAR CARDS)
 ================================= */
 .process {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+  padding: 10rem 0;
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.03);
 }
-.process__bg {
-  position: absolute;
-  inset: 0;
-}
-.process__bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-.process__bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(8,8,8,0.97) 0%,
-    rgba(8,8,8,0.85) 50%,
-    rgba(8,8,8,0.6) 100%
-  );
-}
-.process__content {
-  position: relative;
-  z-index: 2;
+.process__container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 8rem 3rem;
-  width: 100%;
+  padding: 0 4vw;
 }
 .process__header {
-  margin-bottom: 5rem;
+  margin-bottom: 6rem;
+  max-width: 800px;
 }
 .process__heading {
-  font-size: clamp(3rem, 6vw, 6.5rem);
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-}
-.process__steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
 }
 .process__step {
   border-left: 1px solid var(--border);
