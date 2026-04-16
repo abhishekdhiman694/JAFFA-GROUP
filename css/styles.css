@@ -30,30 +30,27 @@
   --muted: #4a4a4a;
   --grey: #888888;
   --light-grey: #b0b0b0;
-  --white: #F5F5F0;
-  --off-white: #E8E8E3;
-  --gold: #EEBE1C;
-  --gold-dark: #C9A227;
-  --gold-deeper: #A07C10;
-  --gold-glow: rgba(238,190,28,0.15);
-  --gold-glow-strong: rgba(238,190,28,0.3);
-
-  --font: 'Bambino', sans-serif;
+  --extra-dark: #050505;
+  
+  --nav-h: 88px;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'Playfair Display', serif;
-  --font-accent: 'Fraunces', serif;
-
-  --nav-h: 110px;
-  --radius: 40px;
+  --font-accent: 'Fraunces', serif; /* Custom editorial look */
+  
+  --radius: 30px;
   --radius-lg: 80px;
-  
-  /* REFINED GOLD TOKENS */
-  --gold-hsl: 46, 86%, 52%;
-  --gold: hsl(var(--gold-hsl));
-  --gold-glow: hsla(var(--gold-hsl), 0.15);
-  --gold-glow-strong: hsla(var(--gold-hsl), 0.35);
-  
-  --transition: 0.8s cubic-bezier(0.16,1,0.3,1);
-  --transition-fast: 0.25s ease;
+  --transition: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* GLOBAL GRAIN TEXTURE */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9999;
 }
 
 /* ARCHITECTURAL GRID BACKGROUND */
@@ -243,6 +240,26 @@ body.cursor-hover .cursor-follower { width:56px; height:56px; border-color: var(
 .reveal-up:nth-child(2) { transition-delay: 0.1s; }
 .reveal-up:nth-child(3) { transition-delay: 0.2s; }
 .reveal-up:nth-child(4) { transition-delay: 0.3s; }
+
+/* ================================
+   GRAPHIC NARRATIVE LAYERS
+================================= */
+.narrative-bg {
+  position: absolute;
+  font-family: var(--font-accent);
+  font-size: 25vw;
+  font-weight: 950;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+.narrative--hero { top: 25vh; right: -5vw; }
+.narrative--craft { bottom: -10vh; left: -10vw; }
+.narrative--stats { top: -15vh; right: 0; }
 
 /* ================================
    NAVIGATION
@@ -1287,6 +1304,24 @@ body.cursor-hover .cursor-follower { width:56px; height:56px; border-color: var(
   margin-bottom: 6rem;
   pointer-events: none;
   user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer__brand-giant::after {
+  content: "JAFFA";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gold);
+  mask: linear-gradient(120deg, transparent 30%, #fff 50%, transparent 70%);
+  mask-size: 200% 100%;
+  animation: liquid-shine 6s infinite linear;
+}
+
+@keyframes liquid-shine {
+  from { mask-position: 200% 0; }
+  to { mask-position: -200% 0; }
 }
 
 .footer__main {

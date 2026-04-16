@@ -9,22 +9,22 @@
    DATA — GALLERY IMAGES
 ============================================================ */
 const GALLERY_IMAGES = [
-  { src: 'Hero Photos/showcase 2.webp',      label: 'Park City, Utah',    span: 'wide tall' },
-  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-1.jpg',  label: 'Deer Valley',        span: 'medium normal' },
-  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-5.jpg',  label: 'Deer Valley',        span: 'narrow short' },
-  { src: 'Hero Photos/showcase 3.webp',      label: 'Mountain Estate',    span: 'narrow tall' },
-  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-12.jpg', label: 'Deer Valley',        span: 'medium normal' },
-  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-16.jpg', label: 'Deer Valley',        span: 'wide short' },
-  { src: 'Jaffa Group Portfolo/White Pine Canyon I/172whitePineCanyon00.jpg', label: 'White Pine Canyon', span: 'medium tall' },
-  { src: 'Hero Photos/showcase 4 .webp',     label: 'Mountain Living',    span: 'narrow normal' },
-  { src: 'Jaffa Group Portfolo/The Colony/TheColony05.jpg',     label: 'The Colony',         span: 'narrow normal' },
-  { src: 'Jaffa Group Portfolo/Glenwild/r-1-1024x797.jpg',      label: 'Glenwild',           span: 'medium short' },
-  { src: 'Jaffa Group Portfolo/Federal Heights/j-3-1024x616.jpg', label: 'Federal Heights',  span: 'wide normal' },
-  { src: 'Hero Photos/showcase6.webp',       label: 'Luxury Interior',    span: 'narrow normal' },
-  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-22.jpg', label: 'Deer Valley',        span: 'medium normal' },
-  { src: 'Jaffa Group Portfolo/White Pine Canyon I/172whitePineCanyon05.jpg', label: 'White Pine Canyon', span: 'narrow short' },
-  { src: 'Hero Photos/showcase 7.webp',      label: 'Mountain Home',      span: 'medium tall' },
-  { src: 'Jaffa Group Portfolo/The Colony/TheColony00.jpg',     label: 'The Colony',         span: 'narrow normal' },
+  { src: 'Hero Photos/showcase 2.webp',      label: 'Park City, Utah',    span: 'wide tall',    coords: '40.64° N, 111.49° W', spec: 'SPEC: ARCH-A1' },
+  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-1.jpg',  label: 'Deer Valley',        span: 'medium normal', coords: '40.62° N, 111.48° W', spec: 'SPEC: DV-01' },
+  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-5.jpg',  label: 'Deer Valley',        span: 'narrow short',  coords: '40.62° N, 111.48° W', spec: 'SPEC: DV-05' },
+  { src: 'Hero Photos/showcase 3.webp',      label: 'Mountain Estate',    span: 'narrow tall',   coords: '40.65° N, 111.50° W', spec: 'SPEC: ME-CORE' },
+  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-12.jpg', label: 'Deer Valley',        span: 'medium normal', coords: '40.62° N, 111.48° W', spec: 'SPEC: DV-12' },
+  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-16.jpg', label: 'Deer Valley',        span: 'wide short',    coords: '40.62° N, 111.48° W', spec: 'SPEC: DV-16' },
+  { src: 'Jaffa Group Portfolo/White Pine Canyon I/172whitePineCanyon00.jpg', label: 'White Pine Canyon', span: 'medium tall', coords: '40.66° N, 111.55° W', spec: 'SPEC: WP-01' },
+  { src: 'Hero Photos/showcase 4 .webp',     label: 'Mountain Living',    span: 'narrow normal', coords: '40.64° N, 111.52° W', spec: 'SPEC: ML-04' },
+  { src: 'Jaffa Group Portfolo/The Colony/TheColony05.jpg',     label: 'The Colony',         span: 'narrow normal', coords: '40.63° N, 111.57° W', spec: 'SPEC: TC-05' },
+  { src: 'Jaffa Group Portfolo/Glenwild/r-1-1024x797.jpg',      label: 'Glenwild',           span: 'medium short',  coords: '40.73° N, 111.51° W', spec: 'SPEC: GW-R1' },
+  { src: 'Jaffa Group Portfolo/Federal Heights/j-3-1024x616.jpg', label: 'Federal Heights',  span: 'wide normal',   coords: '40.77° N, 111.85° W', spec: 'SPEC: FH-J3' },
+  { src: 'Hero Photos/showcase6.webp',       label: 'Luxury Interior',    span: 'narrow normal', coords: '40.64° N, 111.50° W', spec: 'SPEC: INT-06' },
+  { src: 'Jaffa Group Portfolo/Deer Valley/Jaffa Group-22.jpg', label: 'Deer Valley',        span: 'medium normal', coords: '40.62° N, 111.48° W', spec: 'SPEC: DV-22' },
+  { src: 'Jaffa Group Portfolo/White Pine Canyon I/172whitePineCanyon05.jpg', label: 'White Pine Canyon', span: 'narrow short',  coords: '40.66° N, 111.55° W', spec: 'SPEC: WP-05' },
+  { src: 'Hero Photos/showcase 7.webp',      label: 'Mountain Home',      span: 'medium tall',   coords: '40.64° N, 111.49° W', spec: 'SPEC: MH-07' },
+  { src: 'Jaffa Group Portfolo/The Colony/TheColony00.jpg',     label: 'The Colony',         span: 'narrow normal', coords: '40.63° N, 111.57° W', spec: 'SPEC: TC-00' },
 ];
 
 /* Span class mapping */
@@ -538,8 +538,8 @@ function buildGallery() {
     item.innerHTML = `
       <img src="${imgData.src}" alt="${imgData.label}" loading="lazy">
       <div class="gallery__data-tag">
-        <span class="gallery__tag-loc">PARK CITY</span>
-        <span class="gallery__tag-year">2024</span>
+        <span class="gallery__tag-loc">${imgData.coords}</span>
+        <span class="gallery__tag-year">${imgData.spec}</span>
       </div>
       <div class="gallery__overlay">
         <span class="gallery__project-name">${imgData.label}</span>
