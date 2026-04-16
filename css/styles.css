@@ -638,61 +638,119 @@ body.cursor-hover .cursor-follower { width:56px; height:56px; border-color: var(
    STATS BAR
 ================================= */
 /* ================================
-   STATS SECTION (MODULAR)
+   STATS SECTION (BESPOKE PEAK)
 ================================= */
 .stats {
-  padding: 8rem 3rem;
+  position: relative;
+  padding: 12rem 0;
   background: var(--black);
+  overflow: visible;
 }
 .stats__grid {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 3rem;
+  padding: 0 4vw;
+  align-items: center;
+  position: relative;
+  z-index: 2;
 }
 @media (max-width: 900px) {
-  .stats__grid { grid-template-columns: 1fr; }
+  .stats__grid { grid-template-columns: 1fr; gap: 4rem; }
 }
+
 .stats__card {
-  background: var(--white);
-  padding: 5rem 2rem;
-  border-radius: var(--radius);
+  position: relative;
+  background: #F8F8F8; /* Off-white stone */
+  padding: 6rem 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0,0,0,0.05);
   text-align: center;
-  color: var(--black);
-  transition: transform 0.6s var(--transition);
+  transition: all 0.8s var(--transition);
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
-.stats__card:hover { transform: translateY(-15px); }
-.stats__card:nth-child(2) { background: var(--gold); }
-.stats__card:nth-child(2) .stats__number,
-.stats__card:nth-child(2) .stats__label { color: var(--black); }
+.stats__card--peak {
+  background: linear-gradient(135deg, var(--gold) 0%, #D4A717 100%); /* Liquid Gold */
+  transform: translateY(-50px);
+  z-index: 5;
+  box-shadow: 0 50px 100px hsla(var(--gold-hsl), 0.2);
+}
+@media (max-width: 900px) {
+  .stats__card--peak { transform: none; }
+}
+
+.stats__card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+.stats__card--peak:hover {
+  transform: translateY(-65px) scale(1.02);
+  box-shadow: 0 60px 120px hsla(var(--gold-hsl), 0.3);
+}
+
+.stats__card-inner {
+  position: relative;
+  z-index: 2;
+}
 
 .stats__number {
-  display: block;
-  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  font-family: var(--font-accent) !important; /* Prestigious Serif */
+  font-size: clamp(4.5rem, 8vw, 10rem);
   font-weight: 950;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  line-height: 0.9;
+  color: var(--black);
+  display: block;
 }
 .stats__plus {
-  font-size: 0.5em;
-  vertical-align: top;
-  color: var(--muted);
+  font-family: var(--font-accent);
+  font-size: 0.45em;
+  vertical-align: super;
+  margin-left: -0.1em;
+  opacity: 0.4;
 }
-.stats__card:nth-child(2) .stats__plus { color: rgba(0,0,0,0.5); }
 
 .stats__label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  font-weight: 900;
   text-transform: uppercase;
-  margin-top: 1.5rem;
+  letter-spacing: 0.3em;
+  color: var(--black);
   opacity: 0.7;
+  margin-top: 1.5rem;
 }
+
+/* Technical Details */
+.stats__meta {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  font-size: 0.55rem;
+  font-weight: 950;
+  letter-spacing: 0.35em;
+  color: var(--black);
+  opacity: 0.5;
+}
+.stats__card--peak .stats__meta { border-color: rgba(0,0,0,0.15); opacity: 0.7; }
+.stats__meta span { color: var(--gold); }
+.stats__card--peak .stats__meta span { color: var(--black); font-weight: 950; }
+
+.stats__card-brackets {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 1.5px solid hsla(var(--gold-hsl), 0.5);
+  opacity: 0.2;
+  transition: all 0.6s var(--transition);
+}
+.stats__card-brackets.top { top: 2.5rem; left: 2.5rem; border-right: 0; border-bottom: 0; }
+.stats__card-brackets.bottom { bottom: 2.5rem; right: 2.5rem; border-left: 0; border-top: 0; }
+.stats__card:hover .stats__card-brackets { opacity: 0.7; width: 35px; height: 35px; border-color: var(--gold); }
+.stats__card--peak .stats__card-brackets { border-color: rgba(0,0,0,0.4); }
 
 /* ================================
    GALLERY SECTION
